@@ -1,0 +1,278 @@
+#include("/template/common/layout/_page_layout.html")
+#@layout()
+
+#define css()
+<!--Bootstrap jquery.nestable [ SAMPLE ]-->
+<!--<link href="#(RESOURCE_HOST)/static/css/demo/nestable.css" rel="stylesheet"></link>-->
+<link href="#(RESOURCE_HOST)/static/plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
+<link href="#(RESOURCE_HOST)/static/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+<!--Select2 [ OPTIONAL ]-->
+<link href="#(RESOURCE_HOST)/static/plugins/select2/css/select2.min.css" rel="stylesheet">
+<!--Switchery [ OPTIONAL ]-->
+<link href="#(RESOURCE_HOST)/static/plugins/switchery/switchery.min.css" rel="stylesheet">
+
+<link href="#(RESOURCE_HOST)/static/plugins/jstree/themes/default/style.min.css" rel="stylesheet">
+
+<!--Animate.css [ OPTIONAL ]-->
+<link href="#(RESOURCE_HOST)/static/plugins/animate-css/animate.min.css" rel="stylesheet">
+
+<style>
+    .input-icon {
+        position: relative;
+    }
+    .input-icon input {
+        padding-left: 33px !important;
+        color: #999999;
+    }
+    .input-icon i {
+        color: #999999;
+        display: block;
+        position: absolute;
+        margin: 10px 2px 4px 10px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .input-icon.right input {
+        padding-left: 12px !important;
+        padding-right: 33px !important;
+    }
+    .input-icon.right i {
+        right: 8px;
+        float: right;
+    }
+    .mbm {
+        margin-bottom: 10px !important;
+    }
+</style>
+#end
+
+#define js()
+
+<!--Bootstrap jquery.nestable [ SAMPLE ]-->
+<!--<script src="#(RESOURCE_HOST)/static/plugins/nestable/jquery.nestable.js"></script>-->
+<script src="#(RESOURCE_HOST)/static/js/demo/select2-Utils.js"></script>
+
+<script src="#(RESOURCE_HOST)/static/js/demo/switchery-Utils.js"></script>
+
+<script src="#(RESOURCE_HOST)/static/js/department/sys_department.js"></script>
+
+<!--Bootstrap bootbox [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/bootbox/bootbox.min.js"></script>
+<!--Bootstrap Select [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/bootstrap-select/bootstrap-select.js"></script>
+<!--Select2 [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/select2/js/select2.full.min.js"></script>
+<!--Switchery [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/switchery/switchery.min.js"></script>
+<!--jsTree [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/jstree/jstree.min.js"></script>
+
+#end
+
+#define content()
+
+<!--Page content-->
+<!--===================================================-->
+<div id="page-content">
+
+    <!--===================================================-->
+
+    <div class="fixed-fluid">
+
+        <!-- 左侧树结构 -->
+        <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="panel">
+                <div class="pad-all bord-btm">
+                    <div class="btn-group btn-group-justified">
+                        <a href="javascript:void(0)" class="btn  btn-lg btn-info">#(_res.get("i18n_ADD"))</a>
+                        <a href="javascript:void(0)" class="btn btn-lg btn-danger">#(_res.get("i18n_Delete"))</a>
+                        <!--   <a href="javascript:void(0)" class="btn btn-lg btn-success">保存排序</a>-->
+                    </div>
+                </div>
+
+                <div class="panel-heading">
+                    <div class="panel-control">
+                        <ul id="nestable-menu" class="pager pager-rounded">
+                            <!--<button type="button" data-action="expand-all" class="btn btn-mint">全部展开</button>-->
+                            <button type="button" data-action="collapse-all" class="btn btn-info btn-success">收起全部
+                            </button>
+                        </ul>
+                    </div>
+                    <h3 class="panel-title">部门列表</h3>
+                </div>
+
+               <!-- <div class="dd dd-draghandle">
+                    <ol class="dd-list">
+                        #for(depart : department)
+                        <li class="dd-item dd2-item" data-id="#(depart.id)">
+                            <div class="dd-handle dd2-handle">
+                                <i class="normal-icon ace-icon fa fa-comments bigger-130"></i>
+
+                                <i class="drag-icon ace-icon fa fa-arrows bigger-125"></i>
+                            </div>
+                            <a class="dd2-content btn btn-default">#(depart.name)
+                                <span class="pull-right"><i class="#(depart.icon)"></i></span>
+                            </a>
+                            #if(depart.children)
+                                <ol class="dd-list">
+                                #for(children : depart.children)
+                                    <li class="dd-item dd2-item" data-id="#(children.id)">
+                                        <div class="dd-handle dd2-handle">
+                                            <i class="normal-icon ace-icon fa fa-user bigger-130"></i>
+
+                                            <i class="drag-icon ace-icon fa fa-arrows bigger-125"></i>
+                                        </div>
+                                        <div class="dd2-content btn btn-default">#(children.name)
+                                            <span class="pull-right"><i class="#(children.icon)"></i></span>
+                                        </div>
+                                    </li>
+                                #end
+                                </ol>
+                            #end
+                        </li>
+                        #end
+                    </ol>
+                </div>-->
+
+                <!--<div>-->
+                    <!--<h3>Search plugin</h3>-->
+                    <div class="input-icon right"><i class="fa fa-search"></i>
+                        <input id="input-tree" type="text" value="" placeholder="Search here..." class="form-control input-sm mbm" />
+                    </div>
+                    <div id="depart_tree">
+                       <!-- <ul>
+                            <li data-jstree="{&quot;opened&quot;:true, &quot;icon&quot;:&quot;fa fa-comments&quot;}">UI-Element
+                                <ul>
+                                    <li data-id="" data-jstree="{'icon':'fa fa-comments'}">Buttons</li>
+                                    <li data-jstree="{'icon':'fa fa-comments'}">Tabs</li>
+                                    <li data-jstree="{'icon':'fa fa-comments'}">Tabs</li>
+                                    <li data-jstree="{'icon':'fa fa-comments'}">Tabs</li>
+                                </ul>
+                            </li>
+                            <li data-jstree="{'icon':'fa fa-comments'}">Form</li>
+                            <li data-jstree="{'icon':'fa fa-comments'}">Tabs</li>
+                            <li data-jstree="{'icon':'fa fa-comments'}">Tabs</li>
+
+                        </ul>-->
+                    </div>
+                <p class="pad-hor text-main text-bold"></p>
+                <!--</div>-->
+            </div>
+        </div>
+        <!-- 右侧页面 -->
+        <div class="col-sm-6 col-md-8 col-lg-8">
+            <div class="panel">
+                <div id="department-panel" class="panel-body">
+                    <h1 class="page-header text-overflow pad-btm">#(_res.get("i18n_Edit"))</h1>
+
+                    <hr class="hr-sm">
+
+                    <form id="department" class="form-horizontal bv-form" action="#" method="post">
+                        <!--<button type="submit" class="bv-hidden-submit"
+                                style="display: none; width: 0px; height: 0px;"></button>-->
+                        <!--<div class="panel-body">-->
+                        <!--<p class="bord-btm pad-ver text-main text-bold">Not Empty validator</p>-->
+
+                        <!--NOT EMPTY VALIDATOR-->
+                        <!--===================================================-->
+                        <fieldset>
+                            <div class="panel-body">
+                                <div class="form-group hidden">
+                                    <label class="col-lg-3 control-label">id</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" id="id" class="form-control" name="id" placeholder="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">部门名称</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" id="" class="form-control" name="name" placeholder="部门名称">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">编码</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="code" placeholder="编码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">图标</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="icon" placeholder="图标">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">上级部门</label>
+                                    <div class="col-lg-7">
+                                        <!--<select id="loaddepart" class="selectpicker" data-live-search="true" name="parent" data-width="100%">-->
+                                            <!--<option value="0">no thing select</option>-->
+                                        <!--</select>-->
+                                        <select id="loaddepart" class="form-control" data-width="100%" name="parentid"></select>
+                                    </div>
+                                </div>
+                                <!--<div class="form-group">
+                                    <label class="col-lg-3 control-label" for="no_parent">顶级部门</label>
+                                    <div class="col-lg-7">
+                                        &lt;!&ndash;Switchery : Checked&ndash;&gt;
+                                        &lt;!&ndash;===================================================&ndash;&gt;
+                                        <input id="no_parent" class="form-control" type="checkbox" name="LEAF" >
+                                        &lt;!&ndash;===================================================&ndash;&gt;
+                                    </div>
+                                </div>-->
+                               <!-- <div class="form-group">
+                                    <span class="ui-combo-wrap"  style="width:100%;" id="departmentType" >
+                                    <input type="text" class="input-txt name form-control" readonly="readonly" placeholder="请选择所属销售部门" >
+                                    <input type="hidden" name="departmentid" class="depart-id" value="" />
+                                    <i class="trigger"></i>
+                                    </span>
+                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label" for="desc">部门描述</label>
+                                    <div class="col-lg-7">
+                                        <textarea id="desc" rows="9" name="desc" class="form-control" placeholder="部门描述"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label" for="enable">是否启用</label>
+                                    <div class="col-lg-7">
+                                        <!--Switchery : Checked-->
+                                        <!--===================================================-->
+                                        <input id="enable" class="form-control" type="checkbox" name="enable" checked >
+                                        <!--===================================================-->
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <!--===================================================-->
+                        <!--</div>-->
+
+                    </form>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-3">
+                            <button class="btn btn-mint" type="submit" id="submit">#(_res.get("i18n_Submit"))</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--===================================================-->
+
+</div>
+<!--===================================================-->
+<!--End page content-->
+
+
+<button class="scroll-top btn">
+    <i class="pci-chevron chevron-up"></i>
+</button>
+
+<!--</div>-->
+
+#end

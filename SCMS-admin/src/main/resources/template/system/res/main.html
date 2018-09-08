@@ -1,0 +1,73 @@
+#include("/template/common/layout/_page_layout.html")
+#@layout()
+
+#define css()
+<!--Bootstrap Table [ OPTIONAL ]-->
+<link href="#(RESOURCE_HOST)/static/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+
+
+<!--X-editable [ OPTIONAL ]-->
+<link href="#(RESOURCE_HOST)/static/plugins/x-editable/css/bootstrap-editable.css" rel="stylesheet">
+#end
+
+#define js()
+<!--Bootstrap Table Sample [ SAMPLE ]-->
+
+<script src="#(RESOURCE_HOST)/static/js/sysuser/sys_res_table.js"></script>
+
+<!--X-editable [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/x-editable/js/bootstrap-editable.min.js"></script>
+
+<!--Bootstrap Table [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+
+<!--Bootstrap Table Extension [ OPTIONAL ]-->
+<script src="#(RESOURCE_HOST)/static/plugins/bootstrap-table/extensions/editable/bootstrap-table-editable.js"></script>
+
+#end
+
+#define content()
+<div id="container" >
+    <!--<div class="boxed">-->
+        <!--CONTENT CONTAINER-->
+        <!--===================================================-->
+        <!--<div id="content-container">-->
+
+            <div id="page-content">
+
+                <!--Editable - combination with X-editable-->
+                <!--===================================================-->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">菜单列表</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button id="demo-add-row" class="btn btn-primary btn-labeled icon-lg fa fa fa-plus">增加</button> &nbsp
+                        <button id="demo-delete-row" disabled class="btn btn-danger btn-labeled icon-lg fa fa-times">删除</button>
+                        <table id="demo-editable"
+                               data-search="true"
+                               data-show-refresh="true"
+                               data-toolbar="#demo-delete-row,#demo-add-row"
+                               data-show-toggle="true"
+                               data-show-columns="true"
+                               
+                               data-page-list="[15, 20, 30]"
+                               data-page-size="15"
+                               data-pagination="true" data-show-pagination-switch="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--===================================================-->
+            <!--End page content-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <button class="scroll-top btn">
+        <i class="pci-chevron chevron-up"></i>
+    </button>
+
+</div>
+
+#end

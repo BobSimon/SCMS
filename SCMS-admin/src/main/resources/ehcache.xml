@@ -1,0 +1,38 @@
+<ehcache>
+    <diskStore path="java.io.tmpdir"/>
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+    />
+    <cache name="shiro-active-session"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="1800"
+           overflowToDisk="true"
+    />
+    <cache name="shiro-authorizationCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="1800"
+           overflowToDisk="true"
+    />
+    <cache name="LAYIM"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="1800"
+           overflowToDisk="true"
+    />
+    <cache name="LAYIM_GROUP"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="1800"
+           overflowToDisk="true"
+    />
+</ehcache>

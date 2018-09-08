@@ -1,0 +1,133 @@
+/*.rightDiv{
+    right: 60px;
+    width: 80px;
+    padding: 0;
+    border-left:solid 1px #eee;
+    height: 40px;
+    display: inline-block;
+}*/
+.closeButton {
+    background: #fff;
+    border: 0px;
+    height: 40px;
+}
+
+.active.J_menuTab {
+    background: #2e4458;
+}
+
+nav.page-tabs {
+    margin-left: 40px;
+    width: 100000px;
+    height: 40px;
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+}
+
+.content-tabs {
+    position: relative;
+    height: 40px;
+    background: #fafafa;
+    line-height: 40px;
+    /* margin-left: 123px;*/
+    overflow: hidden;
+}
+
+.btn-group-vertical > .btn-group:after, .btn-group-vertical > .btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .modal-header:after, .modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+    display: table;
+    content: " ";
+}
+
+.content-tabs .roll-left {
+    left: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.content-tabs .roll-nav {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    top: 0;
+}
+
+.content-tabs button {
+    background: #fff;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    outline: 0;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    -webkit-appearance: button;
+    cursor: pointer;
+    text-transform: none;
+    margin: 0;
+    font: inherit;
+}
+
+/*
+::-webkit-scrollbar{
+    width: 6px;
+    background-color: #F5F5F5;
+}*/
+nav.page-tabs {
+    margin-left: 40px;
+    width: 100000px;
+    height: 40px;
+    overflow: hidden;
+    display: block;
+    line-height: 40px;
+}
+
+nav.page-tabs .page-tabs-content {
+    float: left;
+}
+
+.page-tabs a {
+    display: block;
+    float: left;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0 15px;
+}
+
+.roll-right.J_tabRight {
+    right: 120px;
+}
+
+.roll-right.J_tabRight {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.roll-right.btn-group {
+    right: 40px;
+    width: 80px;
+    padding: 0;
+}
+
+.roll-right.btn-group button {
+    width: 80px;
+}
+
+.right {
+    position: absolute;
+    z-index: 2;
+    margin-top: -40px;
+    right: 0px;
+    background: #fff;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#demo-set-btn {
+    margin-top: -10px;
+    height: 20px;
+}
+
